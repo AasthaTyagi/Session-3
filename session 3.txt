@@ -1,0 +1,52 @@
+Session 3 Exercise :
+
+Q1 : What is the difference between ngOnChanges() and ngDoCheck()?
+A1 : 
+ngOnChanges
+Purpose:
+ngOnChanges is called whenever there is a change to an input property bound to the component.
+When It’s Called:
+It is called before ngOnInit and whenever one or more data-bound input properties change.
+Parameters:
+It receives a SimpleChanges object which contains the current and previous values of the changed input properties.
+Use Case:
+Use ngOnChanges to respond to changes in input properties. This is useful when you need to perform some action whenever an input property changes, such as updating the component's state or making calculations based on the new input values.
+
+ngDoCheck
+Purpose:
+ngDoCheck is called to detect and act upon changes that Angular can’t or won’t detect on its own.
+When It’s Called:
+It is called with every change detection cycle, which means it runs frequently and can be triggered by any change within the component, not just input properties.
+Parameters:
+It doesn’t receive any parameters.
+Use Case:
+Use ngDoCheck for custom change detection logic. This is useful when you need more granular control over change detection, such as when working with complex data structures that Angular's default change detection might not adequately cover.
+
+
+Q2 : Is constructor a lifecycle hook?
+A2 : No constructors are not lifecycle hook.
+
+
+Q3 : Which is the first lifecycle hook to be called in a component?
+A3 : The first lifecycle hook that is called in a component is ngOnChanges. This hook is invoked before ngOnInit if the component has any data-bound input properties. 
+
+
+Q4 : Which is the correct hook to perform cleaning actions such as prevent memory leaks, unsubscribing observables?
+A4 : The correct lifecycle hook to perform cleanup actions in Angular, such as preventing memory leaks and unsubscribing from observables, is the ngOnDestroy hook. This hook is called once just before the component is destroyed and is the appropriate place to release resources and perform any necessary cleanup.
+
+ngOnDestroy Hook
+Purpose:
+To perform any necessary cleanup before the component is destroyed. This includes:
+Unsubscribing from observables.
+Detaching event handlers.
+Stopping timers.
+Cleaning up other resources to prevent memory leaks.
+
+
+Q5 : Can all lifecycle hooks be used in components as well as directives?
+A5 : Yes, all Angular lifecycle hooks can be used in both components and directives. The Angular framework treats components as a special type of directive with a template. This means that lifecycle hooks, which provide a way to tap into key moments in a component's or directive's lifecycle, can be implemented in both.
+
+
+Q6 : Create a simple Angular application that has a component that displays a list of items. The component should be injected with a service that provides the list of items.
+Q7 : Create a simple Angular application in which one component sets the data and other component get the data from service
+ 
